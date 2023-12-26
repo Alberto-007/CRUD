@@ -1,5 +1,4 @@
 import express from 'express'
-import pool from './database.js'
 import { createTodo, readTodos, readTodoById, updateTodo, deleteTodo } from './controller.js'
 
 const router = express.Router()
