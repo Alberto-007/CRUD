@@ -1,6 +1,5 @@
-import express from 'express'
-import { createTodo, readTodos, readTodoById, updateTodo, deleteTodo } from './controller.js'
-
+const express = require('express')
+const { readTodos, readTodoById, createTodo, updateTodo, deleteTodo } = require('./controller.js')
 const router = express.Router()
 
 //Raiz
@@ -15,4 +14,4 @@ router.post('/todos', createTodo)
 router.put('/todos/:id', updateTodo)
 router.delete('/todos/:id', deleteTodo)
 
-export default router
+module.exports = router

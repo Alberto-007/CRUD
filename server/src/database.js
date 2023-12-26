@@ -1,4 +1,4 @@
-import pkg from 'pg';
+const pkg = require('pg');
 const { Pool } = pkg;
 
 const pool = new Pool({
@@ -9,4 +9,4 @@ const pool = new Pool({
   database: 'todolist'
 });
 
-export default pool;
+module.exports = pool;

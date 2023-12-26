@@ -1,7 +1,7 @@
-import pool from "./database.js";
+const pool = require('./database.js');
 
 //create
-export const createTodo = async (req, res) => {
+ const createTodo = async (req, res) => {
     const id = req.body["id"];
     const title = req.body["title"];
   
@@ -16,30 +16,37 @@ export const createTodo = async (req, res) => {
   };
   
  //read 
-  export const readTodos = async (req, res) => {
+   const readTodos = async (req, res) => {
     pool.query('SELECT * FROM todolist')
       .then(result => res.json(result.rows))
       .catch(err => console.log(err));
   };
   
   //read pelo id
-  export const readTodoById = async (req, res) => {
+   const readTodoById = async (req, res) => {
     pool.query('SELECT * FROM todolist WHERE id = $1', [req.params.id])
       .then(result => res.json(result.rows))
       .catch(err => console.log(err));
   };
   
   //update
-  export const updateTodo = async (req, res) => {
+   const updateTodo = async (req, res) => {
     pool.query('UPDATE todolist SET title = $1 WHERE id = $2', [req.body.title, req.params.id])
       .then(response => res.status(200).send('Todo atualizado com sucesso'))
       .catch(err => console.log(err));
   };
   
   //delete
-  export const deleteTodo = async (req, res) => {
+   const deleteTodo = async (req, res) => {
     pool.query('DELETE FROM todolist WHERE id = $1', [req.params.id])
       .then(response => res.status(200).send('Todo deletado com sucesso'))
       .catch(err => console.log(err));
   };
   
+  module.exports = {
+    createTodo,
+    readTodos,
+    readTodoById,
+    updateTodo,
+    deleteTodo
+  };

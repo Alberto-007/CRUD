@@ -1,6 +1,6 @@
-import express from 'express';
-import cors from 'cors';
-import router from './routes.js';
+const express = require('express')
+const cors = require('cors')
+const router = require('./routes.js')
 
 const app = express()
 const PORT = 3001;
@@ -16,4 +16,4 @@ app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`)
 })
 
-export default app
+module.exports = app
