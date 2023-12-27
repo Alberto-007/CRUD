@@ -4,7 +4,7 @@ const router = express.Router()
 
 //Raiz
 router.get('/', (req, res) => {
-  res.send('"its safe to say that we might even be falling in love" - Victoria Monet')
+  res.send('API de tarefas')
 })
 
 //Rotas
